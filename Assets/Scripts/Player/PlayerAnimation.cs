@@ -42,7 +42,11 @@ public class PlayerAnimation : MonoBehaviour
         {
             yield return new WaitForSeconds(timeToSpawn);
 
-            bubbleSystem.SetActive(true);
+            //Only bubble if in water
+            if (ResourceManagement.instance.depthPoints > 3)
+            {
+                bubbleSystem.SetActive(true);
+            }
         }
 
     }

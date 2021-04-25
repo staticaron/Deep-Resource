@@ -11,6 +11,12 @@ public class ResourceManagement : MonoBehaviour
     [SerializeField]
     public int oxygenPoints;
 
+    public int OxygenPoints
+    {
+        get { return oxygenPoints; }
+        set { oxygenPoints = value; if (oxygenPoints > 10) { oxygenPoints = 10; } }
+    }
+
     [SerializeField]
     public int depthPoints;
     [SerializeField]

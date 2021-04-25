@@ -33,11 +33,11 @@ public class FishHealth : MonoBehaviour
         //Give oxygen to the player
         if (fishType == FishTypes.Normal)
         {
-            resourceManager.oxygenPoints += 2;
+            resourceManager.OxygenPoints += 1;
         }
         else
         {
-            resourceManager.oxygenPoints += 1;
+            resourceManager.OxygenPoints += 2;
         }
 
         ResourceUI.instance.UpdateUI();

@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackValue: 10
   canAttack: 1
-  attackCooldown: 0
+  attackCooldown: 1
 --- !u!114 &2239735085151425104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 519ef63235e57504da989e96a0090757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sample: 0
   health: 100
   fishType: 1
 --- !u!212 &3533394297678406363

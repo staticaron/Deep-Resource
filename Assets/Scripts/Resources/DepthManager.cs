@@ -18,7 +18,11 @@ public class DepthManager : MonoBehaviour
     private void Update()
     {
         Vector2 pos = player.position;
-        int depth = (int)(pos.y - surfaceAltitude);
+        int depth = Mathf.Abs((int)(pos.y - surfaceAltitude));
+        //Updating resource manager so that every info can be found at one place
+        ResourceManagement.instance.depthPoints = depth;
+
+        //Update UI
         resourceUI.UpdateDepth(depth);
     }
 }

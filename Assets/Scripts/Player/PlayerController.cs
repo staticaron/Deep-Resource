@@ -12,14 +12,38 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementVector;
     private Rigidbody2D rb;
 
+    [SerializeField]
+    private Transform head;
+    private bool wasInAir;
+    public bool inAir;
+    [SerializeField]
+    private LayerMask airMask;
+
+    private ResourceManagement resourceManager;
+
     private void Start()
     {
-
+        inAir = false;
         rb = GetComponent<Rigidbody2D>();
+        resourceManager = ResourceManagement.instance;
     }
 
     private void Update()
     {
+        //Check for the current biome
+        inAir = Physics2D.OverlapCircle(head.position, 0.1f, airMask);
+
+        if (inAir == true)
+        {
+            resourceManager.oxygenPoints = 10;
+        }
+
+        if (wasInAir == false && inAir == true)
+        {
+            ResourceUI.instance.UpdateUI();
+        }
+
+        wasInAir = inAir;
 
         //Take input from the player
         inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));

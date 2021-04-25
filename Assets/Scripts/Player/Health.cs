@@ -43,6 +43,7 @@ public class Health : MonoBehaviour
 
         ShowHurtBlinking();
 
+        ResourceManagement.instance.health = currentHealth;
         if (eDamageTaken != null) eDamageTaken(health);
 
     }

@@ -26,6 +26,17 @@ public class ResourceUI : MonoBehaviour
         #endregion
     }
 
+    private void Start()
+    {
+        UpdateUI();
+        Health.eDamageTaken += UpdateHealthUI;
+    }
+
+    private void OnDisable()
+    {
+        Health.eDamageTaken -= UpdateHealthUI;
+    }
+
     private void UpdateOxygenUI(int points)
     {
         oxygenValue.text = points.ToString();
