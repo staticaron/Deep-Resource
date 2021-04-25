@@ -3,10 +3,17 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    //Singleton
+    public static PlayerController instance;
+
+    [SerializeField]
+    public bool controllsEnabled;
     [SerializeField]
     private float moveSpeed;
     [SerializeField]
     private float maxFallSpeed;
+    [SerializeField]
+    private KeyCode interactKey;
 
     public Vector2 inputVector;
     private Vector2 movementVector;
@@ -23,9 +30,22 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        //Maintain Single entity
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        //Init
         inAir = false;
+        controllsEnabled = true;
         rb = GetComponent<Rigidbody2D>();
         resourceManager = ResourceManagement.instance;
+
     }
 
     private void Update()
@@ -45,10 +65,14 @@ public class PlayerController : MonoBehaviour
 
         wasInAir = inAir;
 
-        //Take input from the player
-        inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        inputVector.Normalize();
+        if (controllsEnabled)
+        {
+            //Take input from the player
+            inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            inputVector.Normalize();
+        }
 
+        //Rotate to face the direction of movement
         if (inputVector.x > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -58,6 +82,7 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
+        //Determine the move speed based on the vertical input
         if (Mathf.Abs(inputVector.y) > 0.1)
         {
             movementVector = new Vector2(inputVector.x * moveSpeed, inputVector.y * moveSpeed);
@@ -66,10 +91,25 @@ public class PlayerController : MonoBehaviour
         {
             movementVector = new Vector2(inputVector.x * moveSpeed, Mathf.Clamp(rb.velocity.y, -maxFallSpeed, Mathf.Infinity));
         }
+
+        //Check of out of water interactions
+        if (Input.GetKeyDown(interactKey))
+        {
+            if (WinManager.instance.canGoOut == true)
+            {
+                WinManager.instance.GetOutOfWater();
+            }
+        }
     }
 
     private void FixedUpdate()
     {
         rb.velocity = movementVector;
+    }
+
+    public void StopControl()
+    {
+        controllsEnabled = false;
+        inputVector = Vector2.zero;
     }
 }

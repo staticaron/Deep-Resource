@@ -10,6 +10,8 @@ public class PlayerAnimation : MonoBehaviour
     private GameObject bubbleSystem;
     [SerializeField]
     private float timeToBubble;
+    [SerializeField]
+    private GameObject getOutIndicator;
 
     private void Start()
     {
@@ -33,6 +35,16 @@ public class PlayerAnimation : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerAnimator.SetTrigger("PlayerAttack");
+        }
+
+        //Show indicator at correct time
+        if (playerController.inAir && WinManager.instance.canGoOut)
+        {
+            getOutIndicator.SetActive(true);
+        }
+        else
+        {
+            getOutIndicator.SetActive(false);
         }
     }
 

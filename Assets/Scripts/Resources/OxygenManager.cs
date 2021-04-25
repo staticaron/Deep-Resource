@@ -33,6 +33,7 @@ public class OxygenManager : MonoBehaviour
             if (resourceManager.oxygenPoints <= 0)
             {
                 Health.instance.Dead();
+                PlayerController.instance.StopControl();
             }
         }
     }

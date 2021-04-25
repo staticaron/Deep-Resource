@@ -51,10 +51,11 @@ public class Health : MonoBehaviour
     //Making public because of death with oxygen
     public void Dead()
     {
-        //Do Something
+        //Disable player movement
+        PlayerController.instance.StopControl();
 
         //Reload level
-        StartCoroutine(ReloadLevel());
+        TransitionAndLevelLoader.instance.PlayEndTransitionAndLoadLevel(SceneManager.GetActiveScene().name);
     }
 
     private IEnumerator<WaitForSeconds> ReloadLevel()
