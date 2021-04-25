@@ -27,6 +27,7 @@ public class ResourceUI : MonoBehaviour
     {
         //Update the ui to display the correct numbers
         oxygenValue.text = ResourceManagement.instance.GetOxygen().ToString();
+        oxygenValue.text = "Hello";
     }
 
     private void UpdateNatureUI(FishTypes fishType)

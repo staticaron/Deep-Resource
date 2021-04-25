@@ -39,8 +39,6 @@ public class FishMovement : MonoBehaviour
         maxAltitude = corners[1].y;
         minHorizontal = corners[0].x;
         maxHorizontal = corners[2].x;
-
-        print(minAltitude.ToString() + maxAltitude.ToString() + minHorizontal.ToString() + maxHorizontal.ToString());
     }
 
     private void Update()
@@ -204,9 +202,6 @@ public class FishMovement : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
-
-        Debug.Log(shouldMoveLeft);
-        Debug.Log(randomAngleInRad * Mathf.Rad2Deg);
 
         currentDirection = new Vector2(Mathf.Cos(randomAngleInRad), Mathf.Sin(randomAngleInRad));
     }

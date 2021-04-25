@@ -8,29 +8,35 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float maxFallSpeed;
 
-    private Vector2 inputVector;
+    public Vector2 inputVector;
     private Vector2 movementVector;
     private Rigidbody2D rb;
 
-    private void Start() {
-        
+    private void Start()
+    {
+
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update() {
+    private void Update()
+    {
 
         //Take input from the player
         inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         inputVector.Normalize();
 
-        if(Mathf.Abs(inputVector.y) > 0.1){
+        if (Mathf.Abs(inputVector.y) > 0.1)
+        {
             movementVector = new Vector2(inputVector.x * moveSpeed, inputVector.y * moveSpeed);
-        }else{
+        }
+        else
+        {
             movementVector = new Vector2(inputVector.x * moveSpeed, Mathf.Clamp(rb.velocity.y, -maxFallSpeed, Mathf.Infinity));
         }
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         rb.velocity = movementVector;
     }
 }

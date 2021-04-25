@@ -10,6 +10,7 @@ public class FishDeath : MonoBehaviour
     protected void FishDead(FishTypes fishType)
     {
         if (eFishDied != null) eFishDied(fishType);
+        Debug.Log("Fish was dead");
     }
 
 }
