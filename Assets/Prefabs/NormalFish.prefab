@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2879196380842414095}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -70,7 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 519ef63235e57504da989e96a0090757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sample: 0
   health: 50
   fishType: 0
 --- !u!212 &2879196380842414093
@@ -109,8 +108,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -9234299
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 2045151728857558579, guid: 814ed8452c053684d8583807253b3ff5,
     type: 3}
