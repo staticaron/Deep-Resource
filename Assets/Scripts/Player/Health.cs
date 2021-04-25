@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
             Dead();
         }
 
-        //Spawn Death Particles
+        BGM.instance.PlayHurt();
 
         ShowHurtBlinking();
 

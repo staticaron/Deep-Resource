@@ -65,6 +65,8 @@ public class PlayerAttack : MonoBehaviour
             }
 
             changeAllowedInFishAttackArea = true;
+
+            BGM.instance.PlayHit();
         }
     }
 

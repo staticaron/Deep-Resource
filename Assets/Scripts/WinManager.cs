@@ -10,6 +10,7 @@ public class WinManager : MonoBehaviour
     public int currentResourceCount;
 
     public string NextSceneName;
+    public int currentLevelNumber;
 
     private ResourceManagement resourceManager;
 
@@ -49,6 +50,11 @@ public class WinManager : MonoBehaviour
     {
         if (resourceManager.resourcePoints <= currentResourceCount)
         {
+            if (PlayerPrefs.GetInt("BestLevel") < currentLevelNumber)
+            {
+                PlayerPrefs.SetInt("BestLevel", currentLevelNumber);
+            }
+
             TransitionAndLevelLoader.instance.PlayEndTransitionAndLoadLevel(NextSceneName);
         }
     }
