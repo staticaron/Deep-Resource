@@ -4,8 +4,8 @@ public class FishDeath : MonoBehaviour
 {
     public int sample;
     protected int samplesample;
-    protected delegate void FishDied(FishTypes types);
-    protected static event FishDied eFishDied;
+    public delegate void FishDied(FishTypes types);
+    public static event FishDied eFishDied;
 
     protected void FishDead(FishTypes fishType)
     {
