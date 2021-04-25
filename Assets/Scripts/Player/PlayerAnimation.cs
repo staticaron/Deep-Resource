@@ -7,7 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     private Animator playerAnimator;
     private PlayerController playerController;
     [SerializeField]
-    private ParticleSystem bubbleSystem;
+    private GameObject bubbleSystem;
     [SerializeField]
     private float timeToBubble;
 
@@ -38,9 +38,12 @@ public class PlayerAnimation : MonoBehaviour
 
     private IEnumerator<WaitForSeconds> Bubbles(float timeToSpawn)
     {
-        yield return new WaitForSeconds(timeToSpawn);
+        while (true)
+        {
+            yield return new WaitForSeconds(timeToSpawn);
 
-        bubbleSystem.Play();
+            bubbleSystem.SetActive(true);
+        }
 
     }
 

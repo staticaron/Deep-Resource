@@ -69,9 +69,9 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3569786582473323529}
   serializedVersion: 6
-  lengthInSec: 1
+  lengthInSec: 3
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 1
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -4794,6 +4794,7 @@ GameObject:
   - component: {fileID: 8279147300376615174}
   - component: {fileID: 486392378531045336}
   - component: {fileID: 6060436360994548541}
+  - component: {fileID: 4742889844925585725}
   - component: {fileID: 8279147300376615177}
   - component: {fileID: 8279147300376615175}
   - component: {fileID: 8279147300376615173}
@@ -4864,6 +4865,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b99fb2cc1047242aa2ba9cfa279137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubbleSystem: {fileID: 3569786582473323529}
+  timeToBubble: 5
+--- !u!114 &4742889844925585725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279147300376615178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ca1b6f58a9d3941bd8dc4f2d7bb86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDisable: 2
+  bubbleObject: {fileID: 3569786582473323529}
 --- !u!212 &8279147300376615177
 SpriteRenderer:
   m_ObjectHideFlags: 0

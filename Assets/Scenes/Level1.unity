@@ -1132,7 +1132,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -959155205
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -23540,6 +23540,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8263330112172700572, guid: ba998b5d7d826be4bbc33f028456b12a,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.40313327
+      objectReference: {fileID: 0}
+    - target: {fileID: 8263330112172700572, guid: ba998b5d7d826be4bbc33f028456b12a,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 18.82063
+      objectReference: {fileID: 0}
     - target: {fileID: 8279147300376615176, guid: ba998b5d7d826be4bbc33f028456b12a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23595,6 +23605,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8279147300376615177, guid: ba998b5d7d826be4bbc33f028456b12a,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -959155205
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279147300376615177, guid: ba998b5d7d826be4bbc33f028456b12a,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8279147300376615178, guid: ba998b5d7d826be4bbc33f028456b12a,
         type: 3}
       propertyPath: m_Name
@@ -23624,6 +23644,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347325110168230774, guid: ba998b5d7d826be4bbc33f028456b12a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.142
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347325110168230774, guid: ba998b5d7d826be4bbc33f028456b12a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.111
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347325110168230774, guid: ba998b5d7d826be4bbc33f028456b12a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba998b5d7d826be4bbc33f028456b12a, type: 3}
