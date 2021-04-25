@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - FishBack
+  - AngryFish
+  - Fish
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - SurfaceCollider
+  - Surface
+  - Player
+  - AttackFish
+  - DamageFish
+  - Fish
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: BackWater
+    uniqueID: 1898613831
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3335812091
+    locked: 0
+  - name: Env
+    uniqueID: 4285732997
+    locked: 0
+  - name: Water
+    uniqueID: 2198631369
+    locked: 0
