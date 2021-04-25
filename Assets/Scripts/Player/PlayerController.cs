@@ -25,6 +25,15 @@ public class PlayerController : MonoBehaviour
         inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         inputVector.Normalize();
 
+        if (inputVector.x > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (inputVector.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+
         if (Mathf.Abs(inputVector.y) > 0.1)
         {
             movementVector = new Vector2(inputVector.x * moveSpeed, inputVector.y * moveSpeed);

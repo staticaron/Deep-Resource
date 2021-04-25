@@ -7,68 +7,26 @@ public class ResourceManagement : MonoBehaviour
     public static ResourceManagement instance;
 
     [SerializeField]
-    private int resourcePoints;
+    public int resourcePoints;
     [SerializeField]
-    private int oxygenPoints;
+    public int oxygenPoints;
+
     [SerializeField]
-    private int depthPoints;
+    public int depthPoints;
     [SerializeField]
-    private int naturePoints;
+    public int naturePoints;
+    [SerializeField]
+    public int health;
 
     private void Awake()
     {
-        #region Maintain single entity
         if (instance == null)
         {
             instance = this;
         }
         else
         {
-            Destroy(this);
-        }
-        #endregion
-    }
-
-    private void Start()
-    {
-        FishDeath.eFishDied += updateResourcePoints;
-        FishDeath.eFishDied += updateOxygenPoints;
-    }
-
-    private void OnDisable()
-    {
-        FishDeath.eFishDied -= updateResourcePoints;
-        FishDeath.eFishDied -= updateOxygenPoints;
-    }
-
-
-
-    void updateResourcePoints(FishTypes fishType)
-    {
-
-    }
-
-    void updateOxygenPoints(FishTypes fishType)
-    {
-        if (fishType == FishTypes.Normal)
-        {
-            this.oxygenPoints += 1;
-        }
-        else
-        {
-            this.oxygenPoints += 2;
-        }
-    }
-
-    void updateNaturePoints(FishTypes fishType)
-    {
-        if (fishType == FishTypes.Normal)
-        {
-            this.naturePoints -= 1;
-        }
-        else
-        {
-            this.naturePoints -= 1;
+            Destroy(gameObject);
         }
     }
 

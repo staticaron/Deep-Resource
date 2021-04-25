@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FishHealth : FishDeath
+public class FishHealth : MonoBehaviour
 {
     [SerializeField]
     private int health;
@@ -25,14 +25,27 @@ public class FishHealth : FishDeath
 
     private void Dead()
     {
-        base.FishDead(fishType);
+        ResourceManagement resourceManager = ResourceManagement.instance;
 
-        //Give negative rating to the player if normal fish
+        //Nature Reduction
+        resourceManager.naturePoints -= 1;
+
         //Give oxygen to the player
+        if (fishType == FishTypes.Normal)
+        {
+            resourceManager.oxygenPoints += 2;
+        }
+        else
+        {
+            resourceManager.oxygenPoints += 1;
+        }
 
-        //Update UI
+        ResourceUI.instance.UpdateUI();
 
-        gameObject.SetActive(false);
+        StartCoroutine(PlayerAttack.instance.RemoveEntryFromAttackFishCollection(this.gameObject));
+
+        this.gameObject.SetActive(false);
+
         //Spawn death particles
     }
 }

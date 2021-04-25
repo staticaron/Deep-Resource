@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    //Singleton
+    public static Health instance;
+
     [SerializeField]
     private int currentHealth;
 
@@ -19,6 +22,12 @@ public class Health : MonoBehaviour
     //Damage Events
     public delegate void DamageTaken(int currentHealth);
     public static event DamageTaken eDamageTaken;
+
+    private void Start()
+    {
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+    }
 
     public void TakeDamage(int healthDamage)
     {
@@ -38,7 +47,8 @@ public class Health : MonoBehaviour
 
     }
 
-    private void Dead()
+    //Making public because of death with oxygen
+    public void Dead()
     {
         //Do Something
 

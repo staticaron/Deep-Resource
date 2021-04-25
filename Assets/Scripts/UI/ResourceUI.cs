@@ -4,47 +4,68 @@ using TMPro;
 
 public class ResourceUI : MonoBehaviour
 {
+    //Singletons
+    public static ResourceUI instance;
+
     [SerializeField]
     private TMP_Text resourcesValue, oxygenValue, depthValue, natureValue;
     [SerializeField]
     private Slider healthUISlider;
 
-    private void Start()
+    private void Awake()
     {
-        FishDeath.eFishDied += UpdateOxygenUI;
-        FishDeath.eFishDied += UpdateNatureUI;
-        Health.eDamageTaken += UpdateHealthUI;
+        #region  Maintain single entity
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        #endregion
     }
 
-    private void OnDisable()
+    private void UpdateOxygenUI(int points)
     {
-        FishDeath.eFishDied -= UpdateOxygenUI;
-        FishDeath.eFishDied -= UpdateNatureUI;
-        Health.eDamageTaken -= UpdateHealthUI;
+        oxygenValue.text = points.ToString();
     }
 
-    private void UpdateOxygenUI(FishTypes fishType)
+    private void UpdateNatureUI(int points)
     {
-        //Update the ui to display the correct numbers
-        oxygenValue.text = ResourceManagement.instance.GetOxygen().ToString();
-        oxygenValue.text = "Hello";
+        natureValue.text = points.ToString();
     }
 
-    private void UpdateNatureUI(FishTypes fishType)
+    private void UpdateResourcesUI(int points)
     {
-        //Update the ui to display the correct numbers
-        oxygenValue.text = ResourceManagement.instance.GetNature().ToString();
-    }
-
-    private void UpdateResourcesUI()
-    {
-
+        resourcesValue.text = points.ToString();
     }
 
     private void UpdateHealthUI(int healthLeft)
     {
         //Set the health ui slider value to the players current health
         healthUISlider.value = healthLeft;
+    }
+
+    private void UpdateDeathUI(int depthValue)
+    {
+        this.depthValue.text = depthValue.ToString();
+    }
+
+    public void UpdateUI()
+    {
+        ResourceManagement resourceManager = ResourceManagement.instance;
+
+        UpdateOxygenUI(resourceManager.oxygenPoints);
+        UpdateHealthUI(resourceManager.health);
+        UpdateNatureUI(resourceManager.naturePoints);
+        UpdateResourcesUI(resourceManager.resourcePoints);
+    }
+
+    //This exist to prevent the all the ui elements to update every single frame
+    public void UpdateDepth(int depthValue)
+    {
+        UpdateDeathUI(depthValue);
     }
 
 }
