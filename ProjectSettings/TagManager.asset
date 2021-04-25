@@ -45,15 +45,18 @@ TagManager:
   - name: BackWater
     uniqueID: 1898613831
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Player
     uniqueID: 3335812091
+    locked: 0
+  - name: Collidable
+    uniqueID: 2870790121
     locked: 0
   - name: Env
     uniqueID: 4285732997
     locked: 0
   - name: Water
     uniqueID: 2198631369
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
